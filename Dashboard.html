@@ -1,0 +1,89 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Widget demo</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="jquery.store.js"></script>
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" href="omni.widget.style.css" />
+	</head>
+	<body>
+        <script type = "text/javascript" src="go.omniwidget.js"></script>
+        <script type = "text/javascript">
+            var column_div = $("<div>").addClass("column").appendTo("body");
+
+            //I create 3 widget instances below.
+            //creating a custom options object which is passed to the 3rd widget instance.
+            $('#myId').omniWidget({}).appendTo(column_div);
+
+            //Ref: https://gist.github.com/Dreyer/2368164
+            function randomStr(m) {
+				var m = m || 9; s = '', r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+				for (var i=0; i < m; i++) { s += r.charAt(Math.floor(Math.random()*r.length)); }
+				return s;
+			};
+
+            var callback = function () { return "Gibberish! That's it, Gibberish it is!!" + randomStr(6); }
+
+
+            var options = {
+                moveable: true,
+                closable: true,
+                collapsible: true,
+                refreshable: true,
+                hasHeader: true,
+                contentCallback: callback,
+                storageKey: "widget_object01",
+                title: "Widget 01",
+                action: null,
+                actionUrl: null
+            };
+
+            try {
+                var widget_object01 = $.go.omniWidget(options, $("<div></div>").appendTo(column_div));
+            } catch (e) {
+                console.log(e);
+            }
+            
+
+            options = {
+                moveable: true,
+                closable: true,
+                collapsible: true,
+                refreshable: true,
+                hasHeader: true,
+                contentCallback: callback,
+                storageKey: "widget_object02",
+                title: "Widget 02",
+                action: "Some Action 02",
+                actionUrl : "http://www.google.com"
+            };
+
+            try {
+                var widget_object02 = $.go.omniWidget(options, $("<div></div>").appendTo(column_div));
+            } catch (e) {
+                console.log(e);
+            }
+
+            options = {
+                moveable: true,
+                closable: true,
+                collapsible: true,
+                refreshable: true,
+                hasHeader: true,
+                contentCallback: callback,
+                storageKey: "widget_object03",
+                title: "Widget 03",
+                action: null,
+                actionUrl: null
+            };
+
+            try {
+                var widget_object03 = $.go.omniWidget(options, $("<div></div>").appendTo(column_div));
+            } catch (e) {
+                console.log(e);
+            }
+        </script>
+	</body>
+</html>

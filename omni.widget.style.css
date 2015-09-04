@@ -1,0 +1,43 @@
+.column{
+    width:49%;
+    margin-right:.5%;
+    min-height:300px;
+    background:#fff;
+    float:left;
+}
+.column > .dragbox{
+    margin:5px 2px  20px;
+    background:#fff;
+    position:"relative";
+    border:1px solid #946553;
+}
+.column > .dragbox > h2{
+    margin:0;
+    font-size:12px;
+    background:#FFC657;
+    color:#fff;
+    border-bottom:1px solid #946553;
+    font-family:Verdana;
+    cursor:move;
+    padding:5px;
+    height: 20px;
+}
+
+.column > .dragbox > .dragbox-content{
+    background:#fff;
+    min-height:100px; 
+    margin:5px;
+    font-family:'Lucida Grande', Verdana; 
+    font-size:0.8em; 
+    line-height:1.5em;
+}
+
+.column > .placeholder{
+    background: #FFF;
+    border:1px dashed #946553;
+}
+
+.delete, .maxmin, .refresh {
+    margin:0px 2px;
+    float: right;
+}
